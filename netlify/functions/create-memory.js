@@ -1,8 +1,7 @@
 const Airtable = require('airtable');
-require('dotenv').config(); // Garante que as variáveis de ambiente do .env sejam carregadas localmente
+require('dotenv').config();
 const cloudinary = require('cloudinary').v2;
 
-// Configuração do Cloudinary (usará variáveis de ambiente do Netlify/Cloudinary)
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
     api_key: process.env.CLOUDINARY_API_KEY,
@@ -17,7 +16,6 @@ exports.handler = async (event, context) => {
     try {
         const { title, text, date, imageUrl, youtubeUrl } = JSON.parse(event.body);
 
-        // Inicializa o Airtable
         const base = new Airtable({ apiKey: process.env.AIRTABLE_PAT }).base(process.env.AIRTABLE_BASE_ID);
         const tableName = process.env.AIRTABLE_TABLE_NAME;
 

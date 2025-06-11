@@ -1,14 +1,13 @@
 const Airtable = require('airtable');
-require('dotenv').config(); // Garante que as variáveis de ambiente do .env sejam carregadas localmente
+require('dotenv').config();
 
 exports.handler = async (event, context) => {
     try {
-        // Inicializa o Airtable com suas credenciais do Netlify Environment Variables
         const base = new Airtable({ apiKey: process.env.AIRTABLE_PAT }).base(process.env.AIRTABLE_BASE_ID);
         const tableName = process.env.AIRTABLE_TABLE_NAME;
 
         const records = await base(tableName).select({
-            sort: [{field: "date", direction: "desc"}] // Opcional: ordenar por data
+            sort: [{field: "date", direction: "desc"}]
         }).firstPage();
 
         const memories = records.map(record => ({
@@ -22,9 +21,7 @@ exports.handler = async (event, context) => {
 
         return {
             statusCode: 200,
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ success: true, memories })
         };
 
@@ -32,9 +29,7 @@ exports.handler = async (event, context) => {
         console.error('Erro ao buscar memórias do Airtable:', error);
         return {
             statusCode: 500,
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ success: false, message: 'Erro ao buscar memórias', error: error.message })
         };
     }
