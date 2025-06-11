@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Álbum de Memórias</title>
+    <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="Nosso Álbum de Memórias" />
+    <meta property="og:description" content="Um lugar especial para guardar nossos momentos mais queridos." />
+    <meta property="og:image" content="https://seusite.com/caminho/para/uma/imagem_inicial.jpg" /> <meta property="og:url" content="https://seusite.com" /> <meta property="og:type" content="website" />
+</head>
+<body>
+    <header>
+        <h1>Nosso Álbum de Memórias</h1>
+        <p>Um portal de acesso para reviver os momentos mais especiais das nossas vidas.</p>
+    </header>
+
+    <main class="memory-grid">
+        </main>
+
+    <section class="add-memory-section">
+        <h2>Adicionar Nova Memória</h2>
+        <form id="addMemoryForm">
+            <label for="photoFile">Foto:</label>
+            <input type="file" id="photoFile" accept="image/*" required>
+
+            <label for="title">Título/Onde aconteceu:</label>
+            <input type="text" id="title" placeholder="Ex: Nosso primeiro encontro" required>
+
+            <label for="text">Nossos sentimentos/Detalhes:</label>
+            <textarea id="text" rows="4" placeholder="Ex: Lembro como se fosse hoje..."></textarea>
+
+            <label for="youtubeUrl">Música do YouTube (URL):</label>
+            <input type="url" id="youtubeUrl" placeholder="Ex: https://www.youtube.com/watch?v=..." required>
+
+            <label for="eventDate">Data do Momento:</label>
+            <input type="date" id="eventDate" required>
+
+            <button type="submit">Adicionar Memória</button>
+            <p id="formMessage" class="message"></p>
+        </form>
+    </section>
+
+    <div id="player"></div> <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
