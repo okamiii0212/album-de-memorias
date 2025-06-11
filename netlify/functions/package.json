@@ -1,17 +1,16 @@
 {
   "name": "netlify-functions",
   "version": "1.0.0",
-  "description": "Netlify functions for Album de Memórias",
-  "main": "index.js",
-  "dependencies": {
-    "airtable": "^0.12.0",
-    "dotenv": "^16.0.0"
-  },
-  "devDependencies": {},
+  "description": "Netlify functions for the Memory Album",
+  "main": "create-memory.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "airtable": "^0.12.0",
+    "dotenv": "^16.4.5"
+  }
 }

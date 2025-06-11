@@ -1,6 +1,6 @@
 [build]
-  publish = "public"      # A pasta que será publicada como seu site estático
-  functions = "netlify/functions" # A pasta onde suas Netlify Functions estão
+  publish = "public"
+  functions = "netlify/functions" # Certifique-se de que esta linha está correta e na raiz
 
 [[redirects]]
   from = "/api/*"
