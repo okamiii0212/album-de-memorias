@@ -5,43 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosso Álbum de Memórias</title>
     <link rel="stylesheet" href="style.css">
-    <meta property="og:title" content="Nosso Álbum de Memórias" />
-    <meta property="og:description" content="Um lugar especial para guardar nossos momentos mais queridos." />
-    <meta property="og:image" content="https://seusite.com/caminho/para/uma/imagem_inicial.jpg" /> <meta property="og:url" content="https://seusite.com" /> <meta property="og:type" content="website" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <div class="container">
         <h1>Nosso Álbum de Memórias</h1>
-        <p>Um portal de acesso para reviver os momentos mais especiais das nossas vidas.</p>
-    </header>
+        <p>Um portal para reviver os momentos mais especiais da sua vida.</p>
 
-    <main class="memory-grid">
-        </main>
+        <section class="add-memory">
+            <h2>Adicionar Nova Memória</h2>
+            <form id="memoryForm">
+                <input type="text" id="title" placeholder="Título da memória" required>
+                <textarea id="text" placeholder="Escreva sobre essa memória..." required></textarea>
+                <input type="date" id="date" required>
+                <input type="file" id="imageUpload" accept="image/*">
+                <input type="text" id="youtubeLink" placeholder="Link do vídeo do YouTube (opcional)">
+                <button type="submit">Adicionar Memória</button>
+            </form>
+            <p id="successMessage" class="message success" style="display: none;"></p>
+            <p id="errorMessage" class="message error" style="display: none;"></p>
+            <p id="loadingMessage" class="message info" style="display: none;">Carregando...</p>
+        </section>
 
-    <section class="add-memory-section">
-        <h2>Adicionar Nova Memória</h2>
-        <form id="addMemoryForm">
-            <label for="photoFile">Foto:</label>
-            <input type="file" id="photoFile" accept="image/*" required>
+        <hr>
 
-            <label for="title">Título/Onde aconteceu:</label>
-            <input type="text" id="title" placeholder="Ex: Nosso primeiro encontro" required>
+        <section class="memories-list">
+            <h2>Nossas Memórias</h2>
+            <div id="memoriesList">
+                <p>Carregando memórias...</p>
+            </div>
+        </section>
+    </div>
 
-            <label for="text">Nossos sentimentos/Detalhes:</label>
-            <textarea id="text" rows="4" placeholder="Ex: Lembro como se fosse hoje..."></textarea>
-
-            <label for="youtubeUrl">Música do YouTube (URL):</label>
-            <input type="url" id="youtubeUrl" placeholder="Ex: https://www.youtube.com/watch?v=..." required>
-
-            <label for="eventDate">Data do Momento:</label>
-            <input type="date" id="eventDate" required>
-
-            <button type="submit">Adicionar Memória</button>
-            <p id="formMessage" class="message"></p>
-        </form>
-    </section>
-
-    <div id="player"></div> <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
 </body>
 </html>

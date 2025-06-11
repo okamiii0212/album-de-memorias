@@ -9,14 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para exibir mensagens temporariamente
     function showMessage(element, message) {
-        element.textContent = message;
-        element.style.display = 'block';
-        setTimeout(() => {
-            element.style.display = 'none';
-            element.textContent = '';
-        }, 5000); // Mensagem some após 5 segundos
+        if (element) {
+            element.textContent = message;
+            element.style.display = 'block';
+            setTimeout(() => {
+                element.style.display = 'none';
+                element.textContent = '';
+            }, 5000); // Mensagem some após 5 segundos
+        } else {
+            console.warn(`Elemento de mensagem não encontrado: ${element}`);
+        }
     }
-
     // Função para carregar e exibir as memórias
     async function loadMemories() {
         memoriesList.innerHTML = ''; // Limpa a lista antes de carregar
